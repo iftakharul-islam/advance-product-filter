@@ -1,0 +1,308 @@
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .wrapper {
+      width: 480px;
+      max-width: 100vw;
+      margin: 0 auto;
+      min-height: 120vh;
+    }
+    .wrapper img {
+      width: 100%;
+    }
+    .product-gallery {
+      width: 98%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      transition: all 1s ease;
+    }
+
+    .product-gallery .gallery-item {
+      min-width: 120px;
+      max-width: 180px;
+      display: static;
+      transition: all 2s ease;
+    }
+    .show {
+      animation: animate 0.7s ease-in-out;
+    }
+    @keyframes animate {
+      0% {
+        transform: scale(0.6);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .filter {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 5px;
+
+      /* background: red; */
+    }
+    .filter .filter-item {
+      background: #ececec;
+      padding: 5px 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .filter .filter-item:hover {
+      background: #ccc;
+    }
+    .filter .filter-item.active {
+      background: black;
+      color: white;
+    }
+    .modal {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.5);
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: display .3s ease-in-out;
+      animation: modal .3s linear;
+    }
+    
+    .modal-content {
+      height: 85%;
+      width: 80%;
+    }
+    .modal-content {
+      text-align: center;
+      
+    }
+    .modal-content .modal-image {
+      max-width: 100%;
+      object-fit: cover;
+      max-height: 100%;
+    }
+    @keyframes modal {
+      0% {
+        width: 20vw;
+      height: 20vh;
+      }
+      100% {
+        width: 100vw;
+      height: 100vh;
+      }
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <div class="filter">
+        <div class="filter-item active" data-filter="all">All</div>
+        <div class="filter-item" data-filter="watch">Watch</div>
+        <div class="filter-item" data-filter="shoe">Shoe</div>
+        <div class="filter-item" data-filter="camera">Camera</div>
+      </div>
+      <div class="product-gallery">
+        <div class="gallery-item" data-item="shoe">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="shoe">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="shoe">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1539185441755-769473a23570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="shoe">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="camera">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1515081321129-b3c138ab28dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="camera">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1524135220673-c731600a1a50?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="camera">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1513116476489-7635e79feb27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1093&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="camera">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="watch">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1999&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="watch">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="headphone">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1554116154-e733de92fe4b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+            alt=""
+          />
+        </div>
+        <div class="gallery-item" data-item="headphone">
+          <img
+            src="https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator_square_large.gif"
+            class="lazy-loaded-image lazy"
+            data-src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <img
+          src=""
+          class="modal-image"
+        />
+      </div>
+    </div>
+    <script>
+      (function(){
+        /** First we get all the non-loaded image elements **/
+      var lazyImages = [].slice.call(
+        document.querySelectorAll('.lazy-loaded-image.lazy')
+      );
+
+      /** Then we set up a intersection observer watching over those images and whenever any of those becomes visible on the view then replace the placeholder image with actual one, remove the non-loaded class and then unobserve for that element **/
+      let lazyImageObserver = new IntersectionObserver(function (
+        entries,
+        observer
+      ) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.classList.remove('lazy');
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+
+      /** Now observe all the non-loaded images using the observer we have setup above **/
+      lazyImages.forEach(function (lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+      })();
+
+      
+      let modal = document.querySelector('.modal');
+      let modalImage = document.querySelector('.modal-image');
+      let filter = document.querySelectorAll('.filter-item');
+      let gallery = document.querySelectorAll('.gallery-item');
+      let filterable = 'all';
+      let isModalActive = false;
+      filter.forEach((item) => {
+        item.addEventListener('click', () => {
+          removeClass();
+          item.classList.add('active');
+          filterable = item.getAttribute('data-filter');
+          filterproduct(filterable);
+        });
+      });
+      function filterproduct(filterVal) {
+        gallery.forEach((item) => {
+          const attr = item.getAttribute('data-item');
+
+          if (filterVal == attr || filterVal == 'all') {
+            item.classList.add('show');
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      }
+
+      function removeClass() {
+        filter.forEach((item) => {
+          item.classList.remove('active');
+        });
+      }
+
+      gallery.forEach((item) => {
+        item.addEventListener('click', () => {
+          modalImage.setAttribute('src',event.target.src)
+          modal.style.backgroundImage = ` linear-gradient(to bottom, rgba(45, 0, 52, 0.52), rgba(07, 09, 03, 0.73)),
+          url(${item.childNodes[1].currentSrc})`;
+          modal.style.display = 'flex';
+          isModalActive = true;
+        });
+      });
+
+      window.onclick = function () {
+        if (isModalActive == true) {
+          if (event.target == modal || event.target == modalImage) {
+            modal.style.display = 'none';
+            isModalActive = false;
+          }
+        }
+      };
+      document.querySelector(".filter-item[data-filter='camera']").click();
+    </script>
+  </body>
+</html>
